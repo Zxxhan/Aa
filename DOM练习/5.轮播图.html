@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            position: relative;
+            margin: 100px auto;
+            width: 500px;
+            height: 200px;
+            border: 3px solid white;
+        }
+
+        .box1 li {
+            display: none;
+        }
+
+        .box1 img {
+            width: 500px;
+            height: 200px;
+        }
+
+        .box1 .active {
+            display: block;
+        }
+
+        .box2 {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        .box2 .left-btn {
+            float: left;
+        }
+
+        .box2 .right-btn {
+            float: right;
+        }
+
+        .box2 .right-btn .active {
+            background-color: red;
+        }
+
+        .box2 li {
+            float: left;
+            background-color: #f90;
+            border-radius: 50%;
+            color: white;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            margin: 0 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box1">
+            <ul>
+                <li class="image active"><img src="./image/1.jpg" alt=""></li>
+                <li class="image"><img src="./image/2.jpg" alt=""></li>
+                <li class="image"><img src="./image/3.jpg" alt=""></li>
+                <li class="image"><img src="./image/4.jpg" alt=""></li>
+                <li class="image"><img src="./image/5.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="box2">
+            <div class="left-btn">
+                <ul>
+                    <li class="arr-btn">&lt;</li>
+                    <li class="arr-btn">&gt;</li>
+                </ul>
+            </div>
+            <div class="right-btn">
+                <ul>
+                    <li class="num-btn active">1</li>
+                    <li class="num-btn">2</li>
+                    <li class="num-btn">3</li>
+                    <li class="num-btn">4</li>
+                    <li class="num-btn">5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var oLi = document.getElementsByClassName("image");
+        var numBtn = document.getElementsByClassName("num-btn");
+        var arrBtn = document.getElementsByClassName("arr-btn");
+        var oBox=document.getElementsByClassName("box")[0];
+        var num = 0;
+        var timer;
+        function change(index) {
+            for (var j = 0; j < oLi.length; j++) {
+                oLi[j].classList.remove("active");
+                numBtn[j].classList.remove("active");
+            }
+            oLi[index].classList.add("active");
+            numBtn[index].classList.add("active");
+            num = index;
+        }
+        //数字按钮
+        for (var i = 0; i < numBtn.length; i++) {
+            numBtn[i].index = i;
+            numBtn[i].onmouseover = function () {
+                change(this.index)
+            }
+        }
+        //左右按钮
+        arrBtn[0].onclick = function () {
+            var prevIndex = --num;
+            if (prevIndex == -1) {
+                prevIndex = 4;
+            }
+            change(prevIndex);
+        }
+        arrBtn[1].onclick = function () {
+            var nextIndex = ++num;
+            if (nextIndex == 5) {
+                nextIndex = 0;
+            }
+            change(nextIndex);
+        }
+        function run() {
+            timer = setInterval(function () {
+                arrBtn[1].onclick();
+            }, 1000)
+        }
+        run();
+        oBox.onmouseover=function(){
+            clearInterval(timer);
+        }
+        oBox.onmouseout=function(){
+            run();
+        }
+
+    </script>
+</body>
+
+</html>

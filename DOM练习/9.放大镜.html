@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box,
+        .box1 {
+            float: left;
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin-right: 20px;
+            overflow: hidden;
+        }
+
+        .box img {
+            width: 400px;
+            height: 400px;
+        }
+
+        .box .over {
+            background-color: gray;
+            opacity: 0.8;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .box1 .bigimage {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="./image/2.jpg" alt="">
+        <div class="over"></div>
+    </div>
+    <div class="box1">
+        <img class="bigimage" src="./image/2.jpg" alt="">
+    </div>
+    <script>
+        var oBox2 = document.getElementsByClassName("box")[0];
+        var oBox = document.getElementsByClassName("over")[0];
+        var oBox3 = document.getElementsByClassName("bigimage")[0];
+        oBox2.onmousemove = function (event) {
+            var aTop = event.clientY - 100;
+            var aLeft = event.clientX - 100;
+            if (aTop < 0) {
+                aTop = 0
+            }
+            if (aLeft < 0) {
+                aLeft = 0
+            }
+            if (aTop > 200) {
+                aTop = 200
+            }
+            if (aLeft > 200) {
+                aLeft = 200
+            }
+            oBox.style.top = aTop + "px";
+            oBox.style.left = aLeft + "px";
+            oBox3.style.top = -2 * aTop + "px";
+            oBox3.style.left = -2 * aLeft + "px";
+            
+        }
+    </script>
+</body>
+
+</html>

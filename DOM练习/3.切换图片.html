@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 500px;
+            height: 500px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -250px;
+            border: 2px solid black;
+        }
+
+        .big-image {
+            width: 500px;
+            height: 380px;
+            text-align: center;
+        }
+        .big-image img{
+            width: 400px;
+            height: 350px;
+            margin-top: 10px;
+        }
+        .small-image {
+            width: 500px;
+            height: 120px;
+            border-top: 1px solid black;
+        }
+
+        .small-image li {
+            float: left;
+            height: 120px;
+            border-right: 1px solid black;
+            width: 24.8%;
+            text-align: center;
+        }
+
+        .small-image li:last-child {
+            border-right: none;
+        }
+
+        .small-image li img {
+            margin-top: 10px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="big-image">
+            <img class="bigimg" src="./image/1.jpg" alt="">
+        </div>
+        <div class="small-image">
+            <ul>
+                <li><img class="image" src="./image/1.jpg" alt=""></li>
+                <li><img class="image" src="./image/2.jpg" alt=""></li>
+                <li><img class="image" src="./image/3.jpg" alt=""></li>
+                <li><img class="image" src="./image/4.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var oImg=document.getElementsByClassName("image");
+        var oLi=document.getElementsByTagName("li");
+        var bigImg=document.getElementsByClassName("bigimg")[0];
+        for(var i=0;i<oImg.length;i++){
+            oImg[i].onmouseover=function(){
+                var image=this.getAttribute("src");
+                bigImg.setAttribute("src",image);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
