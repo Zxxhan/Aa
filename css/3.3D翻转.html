@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {
+            padding: 0;
+            margin: 0;
+        } */
+
+        body {
+            perspective: 1000px;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed black;
+            position: relative;
+        }
+
+        .box1 {
+            position: absolute;
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            top: 0;
+            left: 0;
+            transition:all 1s ease ;
+            transform-style: preserve-3d;
+            margin: 0 auto;
+
+        }
+        .box1:hover{
+            transform: rotateY(180deg);
+        }
+        .box2 {
+            position: absolute;
+            background-color: blue;
+            width: 200px;
+            height: 200px;
+            transform: rotateY(180deg) translateZ(10px);
+            top: 0;
+            left: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box1">你好
+            <div class="box2">世界</div>
+        </div>
+    </div>
+</body>
+
+</html>

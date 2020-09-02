@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            border: 2px dashed black;
+            margin: 100px auto;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -175px;
+            margin-left: -175px;
+        }
+
+        .clock {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .clock li {
+            width: 4px;
+            height: 10px;
+            background-color: black;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            margin-left: -2px;
+            transform-origin: 2px 175px;
+        }
+
+        .clock li:nth-child(5n+1) {
+            height: 15px;
+            background-color: orange;
+        }
+
+        .hours,.minute,.second {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin:bottom center;
+            transform: translate(-50%,-100%);
+        }
+
+        .hours {
+            width: 8px;
+            height: 80px;
+            background-color: red;
+
+        }
+
+        .minute {
+            width: 5px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        .second {
+            width: 3px;
+            height: 120px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="clock">
+            <ul></ul>
+            <div class="needle">
+                <div class="hours"></div>
+                <div class="minute"></div>
+                <div class="second"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var oLi = document.getElementsByTagName("ul")[0];
+        var oHours = document.getElementsByClassName("hours")[0];
+        var oMinute = document.getElementsByClassName("minute")[0];
+        var oSecond = document.getElementsByClassName("second")[0];
+        var str = "";
+        for (var i = 0; i < 60; i++) {
+            str += "<li style='transform:rotate(" + i * 6 + "deg);'></li>"
+        }
+        oLi.innerHTML = str;
+        setInterval(function(){
+            run();
+        },1000)
+
+        function run() {
+            var timer = new Date();
+            var _hours = timer.getHours();
+            var _minute = timer.getMinutes();
+            var _second = timer.getSeconds();
+
+            oHours.style.transform="translate(-50%,-100%) rotate("+_hours * 30+"deg)"
+            oMinute.style.transform="translate(-50%,-100%) rotate("+_minute * 6+"deg)"
+            oSecond.style.transform="translate(-50%,-100%) rotate("+_second * 6+"deg)"
+
+        }
+        run();
+
+
+
+
+
+    </script>
+</body>
+
+</html>

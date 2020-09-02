@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        ul {
+            margin-top: 30px;
+            list-style: none;
+        }
+
+        li {
+            width: 100px;
+            height: 50px;
+            color: white;
+            line-height: 50px;
+            text-align: center;
+            float: left;
+            background-color: gray;
+        }
+
+        .active {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>first</li>
+            <li>second</li>
+            <li>third</li>
+        </ul>
+    </div>
+    <script>
+        var oLi = document.getElementsByTagName("li");
+        for (var i = 0; i < oLi.length; i++) {
+            oLi[i].onclick = function () {
+                location.hash = this.innerText;
+                for (var j = 0; j < oLi.length; j++) {
+                    oLi[j].classList.remove("active")
+                }
+                this.classList.add("active");
+            }
+        }
+        window.onhashchange = function () {
+            var _hash = location.hash.slice(1)
+            console.log(_hash);
+            for (var j = 0; j < oLi.length; j++) {
+                if (_hash == oLi[j].innerText) {
+                    oLi[j].classList.add("active");
+                }
+                else {
+                    oLi[j].classList.remove("active");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

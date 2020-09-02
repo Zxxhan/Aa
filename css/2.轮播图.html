@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            height: 500px;
+            position: relative;
+        }
+        .box1 .image {
+            position: absolute;
+            width: 1230px;
+            margin: 0 auto;
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .box1 .active {
+            opacity: 1;
+        }
+
+        .box1 li:nth-child(1) {
+            background-color: rgb(7, 24, 4);
+        }
+
+        .box1 li:nth-child(2) {
+            background-color: rgb(196, 85, 0);
+        }
+
+        .box1 li:nth-child(3) {
+            background-color: rgb(232, 232, 232);
+        }
+
+        .box2 {
+            bottom: 10px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        .box2 li {
+            float: left;
+            width: 30px;
+            height: 5px;
+            background-color: aqua;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box1">
+            <ul>
+                <li class="image active">
+                    <img src="https://img.alicdn.com/tfs/TB1uXhMQ.Y1gK0jSZFMXXaWcVXa-1130-500.png_q100.jpg_.webp"
+                        alt="">
+                </li>
+                <li class="image">
+                    <img src="http://img.alicdn.com/imgextra/i2/18/O1CN01iAMpLg1C0Hk8QsQqd_!!18-0-luban.jpg_q100.jpg_.webp"
+                        alt=""></li>
+                <li class="image">
+                    <img src="https://aecpm.alicdn.com/simba/img/TB1W4nPJFXXXXbSXpXXSutbFXXX.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="box2">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var oLi = document.getElementsByClassName("image");
+        var num = 0;
+        setInterval(function () {
+            oLi[num].classList.remove("active");
+            if (++num < 3) {
+                oLi[num].classList.add("active");
+            }
+            else {
+                num = 0;
+                oLi[num].classList.add ("active");
+            }
+        }, 1000)
+    </script>
+</body>
+
+</html>

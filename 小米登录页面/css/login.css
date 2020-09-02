@@ -1,0 +1,198 @@
+body{
+        font-size: 14px;
+        font-family: Helvetica,arial,"Hiragino Sans GB","PingFang SC","Microsoft YaHei","微軟正黑體","儷黑 Pro",sans-serif;
+}
+.h-logo{
+    height: 98px;
+    width: 200px;
+    background: url(https://account.xiaomi.com/static/res/7f6f2f5/account-static/respassport/acc-2014/img/mistore_logo.png) no-repeat;
+}
+.next{
+    height: 588px;
+    width: 100%;
+    background-position: center;
+    background-image: url("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/aece569d6689b4c461bb53efd9eea9c7.jpg");
+    background-repeat: no-repeat;
+}
+.box{
+    height:588px;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+.login-card{
+    height: 566px;
+    width: 410px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: 0px;
+    background-color: white;
+}
+.login-card .nav-tabs{
+    text-align: center;
+    padding: 27px 0 24px;
+    font-size: 24px;
+}
+.login-card .nav-tabs a{
+    color: #666;
+}
+.login-card .nav-tabs a.action{
+    color: #f56600;
+}
+.login-card .nav-tabs a:hover{
+    color: #f56600;
+}
+.login-card .nav-tabs span{
+    border: 1px solid #e0e0e0;
+    margin: 0 35px 0 35px;
+    height: 24px;
+    width: 1px;
+}
+.login-card .form{
+    width: 348px;
+    margin: 0 auto;
+}
+.login-card .form .form-list{
+    margin-bottom: 14px;
+    border: 1px solid #e0e0e0;
+    width: 306px;
+    height: 22px;
+    padding: 13px 16px 13px 14px;
+}
+.login-card .form .form-list input{
+    border:0 none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+}
+.login-card .form .btn{
+    margin-top: 20px;
+}
+.login-card .btn input{
+    background-color: #ff6700;
+    height: 50px;
+    width: 338px;
+    /* text-align: center; */
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+}
+.login-card .form .phone-login{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.login-card .form .phone-login a{
+    color: #ff6700;
+    font-size: 13px;
+    cursor: pointer;
+}
+.login-card .logo-login {
+    /* padding-top: 30px; */
+    text-align: center;
+    font-size: 14px;
+}
+.login-card .logo-login a{
+    color: #999;
+}
+.login-card .logo-login a:hover{
+    color: #ff6700;
+    cursor: pointer;
+
+}
+.login-card .logo-login span{
+    color: #999;
+    padding-left: 5px;
+    /* padding-right: 5px; */
+}
+.login-card .other-login{
+    padding-top: 143px;
+    width: 338px;
+    margin: 0 auto;
+}
+.login-card .other-login .box1 fieldset{
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: #e0e0e0;
+    text-align: center;
+
+}
+.login-card .other-login .box1 fieldset legend{
+    font-size: 14px;
+    color: #bbb;
+}
+.login-card .other-login .box{
+    margin-top: 5px;
+    padding: 0 20px;
+    height: 40px;
+}
+.login-card .other-login .box a{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    outline: none;
+    margin: 0 17px;
+}
+.login-card .other-login .box .icon1{
+    background-color: #0288d1;
+}
+.login-card .other-login .box .icon2{
+    background-color: #d32f2f;
+}
+.login-card .other-login .box .icon3{
+    background-color: #0ae;
+}
+.login-card .other-login .box .icon4{
+    background-color: #00d20d;
+}
+.login-card .other-login .box a i{
+    display: block;
+    margin: 4px auto 0;
+    background-image: url(https://account.xiaomi.com/static/res/166d6dc/account-static/respassport/acc-2014/img/icons_type.png);
+}
+.login-card .other-login .box a .icon1{
+    width: 18px;
+    height: 18px;
+    background-position: -19px 0;
+}
+.login-card .other-login .box a .icon2{
+    width: 18px;
+    height: 18px;
+    background-position: -38px 0;
+}
+.login-card .other-login .box a .icon3{
+    width: 25px;
+    height: 18px;
+    background-position: -57px 0;
+}
+.login-card .other-login .box a .icon4{
+    width: 24px;
+    height: 18px;
+    background-position: -83px 0;
+}
+.last{
+    padding-top: 100px;
+    text-align: center;
+    height: 80px;
+}
+.last .list{
+    padding: 0px 393px;
+}
+.last .list li{
+    float: left;
+}
+.last .list::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.last .list li a{
+    color: #757575;
+    padding: 0 10px;
+}
+.last .word{
+    color: #757575;
+    padding: 10px 0;
+}
