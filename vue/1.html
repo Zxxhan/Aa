@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dialog-mask{
+            background-color:rgba(0, 0, 0, 0.5);
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            position: fixed;
+        }
+        .dialog-content{
+            background-color: white;
+            width: 300px;
+            height: 300px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <my-dialog title="登录">
+            <div>
+                <label for="name">用户名</label>
+                <input type="text">
+            </div>
+            <div>
+                <label for="password">密码</label>
+                <input type="password">
+            </div>
+            <div>
+                <button>登录</button>
+            </div>
+        </my-dialog>
+    </div>
+    <template id="temp">
+        <div class="dialog-mask">
+            <div class="dialog-content">
+                <div>
+                    {{title}}
+                </div>
+                <div>
+                    <slot></slot>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+
+            },
+            components: {
+                'my-dialog': {
+                    template: "#temp",
+                    props: ['title'],
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>
