@@ -1,0 +1,121 @@
+.head{
+    height: 50px;
+    background: #1C1B20;
+    color:#fff;
+    display: flex;
+}
+.head .head-left{
+    margin-left: 10px;
+    line-height: 50px;
+    font-size: 16px;
+    text-overflow:ellipsis;
+}
+.head .head-right{
+    flex: 1;
+    background: #fff;
+    border-radius: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 10px;
+    font-size: 14px;
+
+}
+.head .head-right span{
+    color:#000;
+    margin-left: 10px;
+}
+.head .head-right input{
+    margin:2px 5px 0 10px;
+    color: -internal-light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
+    height: 26px;
+    width: 220px;
+    outline: none;
+    border: none;
+}
+.nav-list ul{
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    color:#333;
+}
+.nav-list li{
+    width: 20%;
+    margin-top: 10px;
+    font-size: 11px;
+}
+.nav-list li img{
+    width: 55%;
+}
+.store-title fieldset{
+    font-size: 17px;
+    margin-top: 10px;
+    text-align: center;
+    border-width: 1px 0 0 0 ;
+    border-color: #000;
+    border-style: solid;
+    margin-left: 130px;
+    margin-right: 130px;
+}
+.store-list ul{
+   margin:0 10px;
+}
+.store-list li{
+    display: flex;
+    margin: 10px 0 25px 0;
+}
+.store-list li .list-left{
+   position: relative;
+   height: 57px;
+   width: 60px;
+}
+.store-list li .list-left::after{
+    content: "";
+    position:absolute;
+    border: 1px solid #e4e4e4;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 0;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+}
+.store-list .list-left img{
+    height: 57px;
+    width: 60px;
+}
+.store-list .list-right{
+    flex:1;
+   
+    margin-left: 10px;
+    
+}
+.store-list .list-right h3{
+    font-size: 16px;
+    color: #333;
+}
+.store-list .list-right .right2{
+    margin: 4px 0;
+    display: flex;
+    justify-content:space-between;
+    font-size: 11px;
+    color: #333;
+
+    font-family: mtsi-font;
+}
+.store-list .list-right .right3{
+    font-size: 11px;
+    color: #333;
+    font-family: mtsi-font;
+}
+.store-list .list-right .line::after{
+    content: "";
+    display: inline-block;
+    height: 6px;
+    width: 1px;
+    color:#ccc;
+    border-right: solid;
+    margin:0 3px;
+    vertical-align: middle;
+}
