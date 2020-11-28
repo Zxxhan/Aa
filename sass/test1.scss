@@ -1,0 +1,10 @@
+$color:#000;
+
+#div1{
+    width: 100px;
+    height: 100px;
+    background: $color;
+}
+#div2{
+    @extend #div1;
+}
