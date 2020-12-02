@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            margin: 0 auto;
+            width: 500px;
+        }
+
+        .list-right {
+            float: right;
+        }
+
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="div1">
+        <h2>todolist</h2>
+        <hr>
+        <div>
+            名称：<input v-model="aName" type="text" placeholder="请输入商品名称">
+            价格：<input v-model="aPrice" type="number" placeholder="请输入商品价格">
+            <button @click="add()">添加</button>
+        </div>
+        <div>
+            <input v-model="aValue" type="text" placeholder="搜索" @keyup="isFind()">
+            <button @click="isFind()">搜索</button>
+        </div>
+        <div>
+            <ul>
+                <li style="height: 30px;" v-for="(obj,index) in list" v-bind:class="{red:obj.isRed}" @click="change(obj)" v-if="obj.isInclude" :key="obj.thing">
+                    <input v-model="obj.isRed"  type="checkbox" >{{obj.thing}}
+                    <div class="list-right">{{obj.price}}
+                        <button @click="del(index)">[X]</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    <div>
+        <button @click="delsum()">删除选中</button>
+        总价{{total()}}
+    </div>
+         
+        
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                aName:'',
+                aPrice:0,
+                aValue:'',
+                list: [
+                    { thing: "沙发", price: 100,isRed:false,isInclude:true },
+                    { thing: "wifi", price: 50 ,isRed:false,isInclude:true},
+                    { thing: "电脑", price: 200 ,isRed:false,isInclude:true}
+                ],
+                
+            },
+            methods: {
+                // 添加
+                add() {
+                    this.list.push(
+                        {
+                            thing:this.aName,
+                            price:this.aPrice,
+                            isRed:false,
+                            isInclude:true
+                        }
+                    );
+                    this.aName='';
+                    this.aPrice=0
+                },
+                // 搜索
+                isFind(){
+                    this.list.forEach((obj,index)=>{
+                        if(obj.thing.includes(this.aValue)){
+                            obj.isInclude = true; //不用删除
+                        }else{
+                            obj.isInclude = false; 
+                        }
+                    })
+                    this.aValue=''
+                },
+                // 选中变红色
+                change(obj){
+                    obj.isRed=!obj.isRed
+                },
+                // 删除一个
+                del(index){
+                    this.list.splice(index,1);
+                },
+                delsum(){
+
+                    let arr = this.list.filter(function(obj,index){ //过滤出所有符合条件的成员
+                        return obj.isRed == false;
+                    })
+                    this.list = arr;
+                        
+                },
+
+                total() {
+                    let sum = 0;
+                    this.list.forEach(function(obj){
+                        if(obj.isRed)
+                            sum+=obj.price
+                    });
+                    return sum;
+                },
+                
+            }
+        })
+    </script>
+</body>
+
+</html>
