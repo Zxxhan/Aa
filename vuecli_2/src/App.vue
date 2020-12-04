@@ -1,12 +1,25 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link :to="{path:'/page1',query:{id:11,name:'zxh'}}">page1</router-link>
+      |
+      <router-link :to="{name:'page2',params:{id:22}}">page2</router-link>
+      |
+      <router-link to="/page3/33">page3</router-link>
+
+      <!-- <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> -->
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  methods: {},
+};
+</script>
+
 
 <style lang="scss">
 #app {
