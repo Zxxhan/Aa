@@ -12,6 +12,8 @@ const routes = [
   {
     path:'/page1',
     name:'page1',
+    // 别名
+    alias:'/bieming',
     component:Page1
   },
   {
@@ -30,6 +32,12 @@ const routes = [
       path:'b',
       component:B
     }]
+  },
+  {
+    path:'/',
+
+    // 重定向
+    redirect:'/page2'
   }
 ]
 

@@ -1,10 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link :to="{path:'/page1',query:{id:11,name:'zxh'}}">page1</router-link>
+      <!-- query传参 -->
+      <router-link :to="{path:'/bieming',query:{id:11,name:'zxh'}}">page1</router-link>
       |
+      <!-- params传参 -->
       <router-link :to="{name:'page2',params:{id:22}}">page2</router-link>
       |
+      <!-- 路由路径传参 -->
       <router-link to="/page3/33">page3</router-link>
 
       <!-- <router-link to="/">Home</router-link> |
