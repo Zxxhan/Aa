@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Page1 from '../views/page1.vue'
 import Page2 from '../views/page2.vue'
 import Page3 from '../views/page3.vue'
+import myVuex from '../views/Vuex_test1.vue'
 import A from '../views/a.vue'
 import B from '../views/b.vue'
 
@@ -34,8 +35,12 @@ const routes = [
     }]
   },
   {
+    path:'/Vuex_test1',
+    name:'myVuex',
+    component:myVuex
+  },
+  {
     path:'/',
-
     // 重定向
     redirect:'/page2'
   }
