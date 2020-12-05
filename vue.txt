@@ -1,0 +1,12 @@
+搭建项目：
+
+cmd: vue ui
+包管理器：npm
+手动，前两个+ router,vuex,css pre-processors
+Css 预处理 选择第一个
+预设不保存
+
+启动项目：
+npm run serve
+
+cnpm i axios --save 生产环境依赖
