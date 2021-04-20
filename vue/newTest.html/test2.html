@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            是否需要额外的付费设施 <input v-model="isPay" type="checkbox">
+            <ul v-if="isPay">
+                <li v-for="(obj,index) in list">
+                    {{obj.thing}}({{obj.price}})
+                    <input v-model="info" :value="obj" type="checkbox">
+                </li>
+            </ul>
+        </div>
+        <div>
+            订单费用信息
+            <ul v-if="isPay">
+                <li v-for="(obj,index) in info">
+                    {{obj.thing}}({{obj.price}})
+                </li>
+            </ul>
+        </div>
+        <div>总金额：{{total()}}</div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                isPay: false,
+                list: [
+                    {
+                        thing: "沙发",
+                        price: 100
+                    },
+                    {
+                        thing: "wifi",
+                        price: 50
+                    },
+                    {
+                        thing: "电脑",
+                        price: 200
+                    }
+                ],
+                info: [
+                    {
+                        thing: "thing",
+                        price: 50
+                    }
+                ]
+            },
+            methods:{
+                total(){
+                    let sum=0;
+                    for(var i=0;i<this.info.length;i++){
+                        sum+=this.info[i].price;
+                    }
+                    return sum;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

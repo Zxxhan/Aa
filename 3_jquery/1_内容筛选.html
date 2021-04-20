@@ -113,10 +113,10 @@
   <script>
     $("#filterName").keyup(function () {
       console.log($(this).val())
+      var thisVal = $(this).val();
+      $("tbody tr").css("display", "none");
+      $("tbody tr:contains(" + thisVal + ")").css("display", "table-row");
     })
-    $("tbody tr").css("display", "none");
-    $("tbody tr:contains()").css("display", "table-row");
-
   </script>
 </body>
 

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        #app {
+            margin: 0 auto;
+            width: 500px;
+        }
+
+        .list-right {
+            float: right;
+        }
+
+        .changeRed {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>todolist</h2>
+        <hr>
+        <div>
+            名称：<input v-model="athing" type="text" placeholder="请输入商品名称">
+            价格：<input v-model="aprice" type="number" placeholder="0">
+            <button @click="add">添加</button>
+        </div>
+        <div>
+            <input v-model="sthing" type="text" placeholder="搜索" @keyup="isFind()">
+            <button @click="isFind()">搜索</button>
+        </div>
+        <div>
+            <ul>
+                <li style="height: 30px;" v-for="(obj,index) in list" v-if="obj.isInclude"  @click="change(obj)"
+                    v-bind:class="{changeRed:obj.isRed}">
+                    <input v-model="obj.isRed" type="checkbox">{{obj.thing}}
+                    <div class="list-right">
+                        {{obj.price}}
+                        <button @click="del(index)">[X]</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <button @click="delsum()">删除选中</button>
+            总价{{sum()}}
+        </div>
+
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                athing: '',
+                aprice: 0,
+                sthing: '',
+                list: [
+                    { thing: "沙发", price: 100, isRed: false, isInclude: true },
+                    { thing: "wifi", price: 50, isRed: false, isInclude: true },
+                    { thing: "电脑", price: 200, isRed: false, isInclude: true }
+                ]
+            },
+            methods: {
+                add() {
+                    this.list.push({ thing: this.athing, price: this.aprice, isRed: false, isInclude: true }),
+                        this.athing = '',
+                        this.aprice = 0
+
+                },
+                change(obj) {
+                    obj.isRed = !obj.isRed
+                },
+                del(index) {
+                    this.list.splice(index, 1)
+                },
+                isFind() {
+                    console.log(this.sthing)
+                    this.list.forEach((obj, index) => {
+                        if (obj.thing.includes(this.sthing)) {
+                            obj.isInclude = true;
+                        }
+                        else {
+                            obj.isInclude = false;
+                        }
+                    })
+                },
+                sum() {
+                    let sum = 0;
+                    this.list.forEach(function (obj) {
+                        if (obj.isRed)
+                            sum += obj.price
+                    })
+                    return sum;
+                },
+                delsum() {
+                    let arr = this.list.filter(function (obj, index) {
+                        return obj.isRed == false;
+                    })
+                    this.list = arr;
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
